@@ -1,7 +1,6 @@
 function capitalize(word) {
   if (word === undefined) throw new Error("word is required");
   // Add your code here!
-  console.log(word.substring(0,1).toUpperCase() + word.substring(1,word.length));
   return word.substring(0,1).toUpperCase() + word.substring(1,word.length);
 }
 
@@ -9,6 +8,7 @@ function generateInitials(firstName, lastName) {
   if (firstName === undefined) throw new Error("firstName is required");
   if (lastName === undefined) throw new Error("lastName is required");
   // Add your code here!
+  return firstName.substring(0,1).toUpperCase() + "." + lastName.substring(0,1).toUpperCase();
 }
 
 function addVAT(originalPrice, vatRate) {
