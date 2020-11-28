@@ -71,7 +71,6 @@ function countLinuxUsers(users) {
   for (var i = 0; i < users.length; i++){
     if (users[i].type === "Linux"){
       result = result + 1;
-      console.log(result);
     }
   }
   return result;
@@ -80,6 +79,10 @@ function countLinuxUsers(users) {
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
   // Add your code here!
+  var result = scores.reduce((a,b) => a + b, 0) / scores.length;
+  //result = Math.floor(result*100)/100;
+  result = Number(Math.round(result + "e2") + "e-2");
+  return result;
 }
 
 function simpleFizzBuzz(n) {
