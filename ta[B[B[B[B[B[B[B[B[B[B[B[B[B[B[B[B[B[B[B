@@ -1,0 +1,41 @@
+[33mcommit 59cce18e34108935e67396ed3279e8c7cb7463c4[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Zap-Master <kim.lidiya2011@gmail.com>
+Date:   Sat Nov 28 19:20:50 2020 +0000
+
+    Implemented first exercise - reverseWord
+
+[33mcommit 31f8074b88a903e846772d3f4a74a687919d7596[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Zap-Master <kim.lidiya2011@gmail.com>
+Date:   Sat Nov 28 18:43:53 2020 +0000
+
+    Implemented first exercise - getMiddleCharacter
+
+[33mcommit 1941cc446eca1cd47751579ce5db855152270a39[m
+Author: Zap-Master <kim.lidiya2011@gmail.com>
+Date:   Sat Nov 28 18:22:11 2020 +0000
+
+    Implemented first exercise - getSalePrice
+
+[33mcommit b24c8712dc7f51807eb5deb741fbe8e2aa867dd8[m
+Author: Zap-Master <kim.lidiya2011@gmail.com>
+Date:   Sat Nov 28 18:14:18 2020 +0000
+
+    Implement first exrecise - addVAT
+
+[33mcommit f5f2a99cc88d43236936c8205d41bbcbbb5adb3b[m
+Author: Zap-Master <kim.lidiya2011@gmail.com>
+Date:   Sat Nov 28 17:45:59 2020 +0000
+
+    Implemented first exercise - generateInitials
+
+[33mcommit 305e10bf4c8bd74ec20c0e5ea868b7c5d96e958a[m
+Author: Zap-Master <kim.lidiya2011@gmail.com>
+Date:   Sat Nov 28 17:29:22 2020 +0000
+
+    Implemented first exercise - capitalize
+
+[33mcommit 0dba8b7d837feb91debd6cc2ba6ee90e0dbb8b5a[m
+Author: James Heggs <james.heggs@techreturners.com>
+Date:   Sun Nov 22 19:19:24 2020 +0000
+
+    Initial commit of JS exercises
