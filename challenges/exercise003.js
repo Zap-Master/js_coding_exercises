@@ -46,7 +46,6 @@ function checkIngredients(menu, ingredient) {
   var result = false;
   for (let i = 0; i < menu.length; i++) {
     result = menu[i].ingredients.includes(ingredient);
-    console.log(result);
     if (result) {
       break;
     }
@@ -58,6 +57,13 @@ function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
   // Your code here!
+  var result = [];
+  for (let i = 0; i < arr1.length; i ++){
+    if (arr2.includes(arr1[i]) && !result.includes(arr1[i])) {
+      result.push(arr1[i]);
+    }
+  }
+  return result.sort();
 }
 
 module.exports = {
