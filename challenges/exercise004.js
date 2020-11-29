@@ -83,6 +83,15 @@ function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
   // Your code here
+  var result =[];
+  var i = 0;
+  sentences.forEach(element => {
+    if (sentences[i].toUpperCase().search(str.toUpperCase()) != -1 ){
+      result.push(sentences[i]);
+    }
+    i++;
+  });
+  return result;
 }
 
 function getLongestSides(triangles) {
