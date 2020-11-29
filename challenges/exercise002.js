@@ -19,11 +19,21 @@ function getBusNumbers(people) {
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
+  var result = 0;
+  for (let i = 0; i < arr.length; i ++){
+    if (arr[i] === "sheep") {
+      result ++;
+    }
+  }
+  return result;
 }
 
 function hasMPostCode(person) {
   if (person === undefined) throw new Error("person is required");
   // Your code here!
+  //var result = "";
+  return ((person.address.city === "Manchester" && person.address.postCode.substring(0,1) === "M"));
+  
 }
 
 module.exports = {
