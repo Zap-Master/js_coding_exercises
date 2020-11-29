@@ -43,6 +43,15 @@ const count1sand0s = str => {
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
   // Your code here!
+  var result = "";
+  var i = 0;
+  var arr = n.toString().split("");
+  arr.reverse();
+  arr.forEach(element =>{
+    result = result + arr[i];
+    i++;
+  })
+  return parseInt(result,10);
 };
 
 const sumArrays = arrs => {
