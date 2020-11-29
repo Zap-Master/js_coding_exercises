@@ -35,7 +35,6 @@ function findVerbs(words) {
   var i = 0;
   words.forEach(element => {
     if (words[i].indexOf("to ") != -1 ){
-      console.log(words[i]);
       result.push(words[i]);
     }
     i ++;
@@ -46,6 +45,15 @@ function findVerbs(words) {
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
   // Your code here
+  var result =[];
+  var i = 0;
+  nums.forEach(element =>{
+    if (Number.isInteger(nums[i])) {
+      result.push(nums[i]);
+    }
+    i ++;
+  })
+  return result;
 }
 
 function getCities(users) {
