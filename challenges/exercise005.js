@@ -21,6 +21,23 @@ const findNextNumber = (nums, n) => {
 const count1sand0s = str => {
   if (str === undefined) throw new Error("str is required");
   // Your code here!
+  var arr = str.split("");
+  var i = 0;
+  var cnt1 = 0 ;
+  var cnt0 = 0;
+  arr.forEach(element =>{
+    switch (arr[i]){
+      case "1":
+        cnt1 ++;
+        break;
+      case "0":
+        cnt0 ++;
+        break;
+    }
+    i ++;
+  });
+  const counter = {1: cnt1, 0: cnt0};
+  return counter;
 };
 
 const reverseNumber = n => {
