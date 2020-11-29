@@ -43,6 +43,15 @@ function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
   // Your code here!
+  var result = false;
+  for (let i = 0; i < menu.length; i++) {
+    result = menu[i].ingredients.includes(ingredient);
+    console.log(result);
+    if (result) {
+      break;
+    }
+  }
+  return (result);
 }
 
 function duplicateNumbers(arr1, arr2) {
