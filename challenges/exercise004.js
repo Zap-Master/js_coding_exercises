@@ -17,6 +17,15 @@ function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
   // Your code here
+  var result = [];
+  var i = 0;
+  names.forEach(element => {
+    if (names[i].substring(0,1).toUpperCase() === char.toUpperCase()){
+      result.push(names[i]);
+    }
+    i ++;
+  })
+  return result;
 }
 
 function findVerbs(words) {
