@@ -31,6 +31,16 @@ function findNamesBeginningWith(names, char) {
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
   // Your code here
+  var result = [];
+  var i = 0;
+  words.forEach(element => {
+    if (words[i].indexOf("to ") != -1 ){
+      console.log(words[i]);
+      result.push(words[i]);
+    }
+    i ++;
+  })
+  return result;
 }
 
 function getIntegers(nums) {
