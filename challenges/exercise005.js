@@ -67,9 +67,6 @@ const sumArrays = arrs => {
     sums[i] = arrs[i].reduce(GetSum);
     i++;
   });
-
-
-
   return sums.reduce(GetSum);
 
 };
@@ -77,6 +74,21 @@ const sumArrays = arrs => {
 const arrShift = arr => {
   if (arr === undefined) throw new Error("arr is required");
   // Your code here!
+  /*
+  var tmp = 0;
+  var shiftArr = arr;
+  if (shiftArr.length >= 2) {
+    tmp = shiftArr[0];
+    shiftArr[0] = shiftArr[shiftArr.length-1];
+    shiftArr[shiftArr.length-1] = tmp;
+  }
+  
+  return shiftArr;
+  */
+ if (arr.length >= 2) {
+    [arr[0],arr[arr.length-1]] = [arr[arr.length-1], arr[0]]
+  }
+  return arr;
 };
 
 const findNeedle = (haystack, searchTerm) => {
