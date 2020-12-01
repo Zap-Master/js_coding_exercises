@@ -80,12 +80,15 @@ const findNeedle = (haystack, searchTerm) => {
   var result = false;
   var obj = haystack;
   var myObj = Object.values(obj);
+  /*
+  var i = 0;
    myObj.forEach(element =>{
     if (myObj[i].indexOf(searchTerm.toUpperCase()) != -1 ){
       result = true;
     }
     i++;    
   })
+  */
   return result;
 };
 
