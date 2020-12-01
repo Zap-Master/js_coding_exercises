@@ -77,18 +77,16 @@ const arrShift = arr => {
 const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
-  var result = false;
-  var obj = haystack;
-  var myObj = Object.values(obj);
-  /*
-  var i = 0;
-   myObj.forEach(element =>{
-    if (myObj[i].indexOf(searchTerm.toUpperCase()) != -1 ){
+  let result = false;
+  let i = 0;
+  let inspectedStr = "";
+  Object.keys(haystack).forEach(element =>{
+    inspectedStr = Object.values(haystack)[i].toString().toUpperCase();
+    if (inspectedStr.indexOf(searchTerm.toUpperCase()) != -1){
       result = true;
     }
-    i++;    
+    i++;
   })
-  */
   return result;
 };
 

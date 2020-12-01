@@ -91,7 +91,7 @@ describe("findNeedle", () => {
       code: 12872
     };
     expect(findNeedle(obj1, "table")).toBe(true);
-
+    
     // Note that the objects provided to the function could have any keys/values
     const obj2 = {
       product_name: "Sparkle n Shine Dishwasher Tablets",
@@ -137,6 +137,7 @@ describe("findNeedle", () => {
     expect(findNeedle(obj1, "linnmon")).toBe(true);
     expect(findNeedle(obj1, "Liverpool")).toBe(false);
   });
+
 });
 
 describe("getWordFrequencies", () => {
