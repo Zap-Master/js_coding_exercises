@@ -6,15 +6,26 @@
  */
 const sumMultiples = arr => {
   if (arr === undefined) throw new Error("arr is required");
+  if (!Array.isArray(arr))throw new Error("an Array is required");
+  let total = 0;
+  arr.forEach(i=>{
+    if ((i%3 === 0) || (i%5 === 0)){
+      total += i;
+    }
+  });
+  return total;
 };
 
 /**
- * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string. A valid DNA string may contain characters C, G, T or A only.
+ * This function will receive a string of characters and should return true/false depending on whether it is a valid DNA string.
+ * A valid DNA string may contain characters C, G, T or A only.
  * @param {String} str
  * @returns {Boolean}
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  
+  return false;
 };
 
 /**

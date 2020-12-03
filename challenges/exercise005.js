@@ -100,9 +100,7 @@ const getWordFrequencies = str => {
       wrdFreqObj[i] = 0;
     }
     wrdFreqObj[i] += 1;
-    console.log(wrdFreqObj[i]);
   });
-  //console.log(wrdFreqObj);
   return wrdFreqObj;
 };
 
