@@ -31,19 +31,48 @@ describe("sumMultiples", () =>{
         expect(sumMultiples([1,2,8,13,7])).toBe(0);
     });
 });
+
 describe("isValidDNA", () => {
-    test("it returns False if string is empty", () =>{
-        const result = isValidDNA("");
-        const expected = false;
-        expect(result).toBe(expected)
-        })
-    
-/*    
-    test("it returns False if string contains not only G A C T characters", () =>{
-        const result = isValidDNA("");
-        const expected = false;
-        expect(result).toBe(expected)
-        })
+    test("it throw an error if not passed a string", () =>{
+       expect(() => {
+           isValidDNA();
+       }).toThrow("str is required");
+
+       expect(() => {
+            isValidDNA("");
+       }).toThrow("str is empty");
     });
-    */    
-});
+    
+   
+    test("it returns False if string contains not only G A C T characters", () =>{
+        const result = isValidDNA("GACTQ");
+        const expected = false;
+        expect(result).toBe(expected);
+    });
+
+    test("it returns False if string contains not only G A C T characters", () =>{
+        const result = isValidDNA("GAAATTB");
+        const expected = false;
+        expect(result).toBe(expected);
+    });
+
+    test("it returns True if string contains only G A C T characters", () =>{
+        const result = isValidDNA("GAAATTCCCAAAGG");
+        const expected = true;
+        expect(result).toBe(expected);
+    });
+
+    test("it returns True if string contains only G A C T characters", () =>{
+        const result = isValidDNA("GAAATTCCCAAAGGAT");
+        const expected = true;
+        expect(result).toBe(expected);
+    });
+
+    test("it returns True if string contains only G A C T characters", () =>{
+        const result = isValidDNA("AA");
+        const expected = true;
+        expect(result).toBe(expected);
+    });
+    
+    });
+        

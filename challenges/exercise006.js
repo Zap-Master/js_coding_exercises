@@ -24,8 +24,17 @@ const sumMultiples = arr => {
  */
 const isValidDNA = str => {
   if (str === undefined) throw new Error("str is required");
-  
-  return false;
+  if (str.length === 0) throw new Error("str is empty");
+  const DNA = ["C", "G", "T", "A"];
+  let isDNA = true;
+  for (let i = 0; i < str.length; i ++){
+      if (DNA.findIndex(char => char === str[i]) === -1) {
+        console.log(DNA.findIndex(char => char === str[i]));
+        isDNA = false;
+        break;
+    }  
+  }
+  return isDNA;
 };
 
 /**
