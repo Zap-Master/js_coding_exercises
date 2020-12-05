@@ -1,3 +1,5 @@
+const { run } = require("jest");
+
 /**
  * This function will receive an array of numbers and should return the sum
  * of any numbers which are a multiple of 3 or 5
@@ -29,7 +31,6 @@ const isValidDNA = str => {
   let isDNA = true;
   for (let i = 0; i < str.length; i ++){
       if (DNA.findIndex(char => char === str[i]) === -1) {
-        console.log(DNA.findIndex(char => char === str[i]));
         isDNA = false;
         break;
     }  
@@ -38,25 +39,61 @@ const isValidDNA = str => {
 };
 
 /**
- * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
+ * This function will receive a valid DNA string (see above) and should return a string of the complementary base pairs. In DNA, T always pairs with A, 
+ * and C always pairs with G. So a string of "ACTG" would have a complementary DNA string of "TGAC".
  * @param {String} str
  * @returns {String}
  */
 const getComplementaryDNA = str => {
   if (str === undefined) throw new Error("str is required");
+  const validDNA = isValidDNA(str);
+  if (validDNA === false) throw new Error("valid DNA is required");
+  let result = "";
+  //console.log("cba".split(''));
+  str.split("").forEach(letter =>{
+    //console.log(letter);
+    switch (letter) {
+      case "T": 
+        result += "A";
+        break;
+      case "C":
+        result += "G";
+        break;
+      case "A": 
+        result += "T";
+        break;
+      case "G":
+        result += "C";
+        break;
+
+    }
+  });
+
+  return result;
 };
 
 /**
- * This function should receive a number and return true/false depending on whether it is a prime number or not. A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
+ * This function should receive a number and return true/false depending on whether it is a prime number or not.
+ * A prime number is a number that can only be divided evenly by 1 and itself (for example, 7)
  * @param {Number} n
  * @returns {Boolean}
  */
 const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
+  if (!Number.isInteger(n)) throw new Error("n should be an integer");
+  let result = true;
+  for (i = 1; i <= n; i++){
+    if (n % i === 0 && i != 1 && i != n){
+      result = false;
+      break;
+    }
+  };
+  return result;
 };
 
 /**
- * This function should receive a number and return an array of n arrays, each filled with n items. The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
+ * This function should receive a number and return an array of n arrays, each filled with n items.
+ * The parameter "fill" should be used as the filler of the arrays. For example, given parameters 3 and "foo" the resulting matrix should be:
  * [
  *   ["foo", "foo", "foo"],
  *   ["foo", "foo", "foo"],

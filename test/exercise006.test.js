@@ -1,4 +1,5 @@
-const {sumMultiples, isValidDNA} = require("../challenges/exercise006");
+const exercise006 = require("../challenges/exercise006");
+const {sumMultiples, isValidDNA, getComplementaryDNA, isItPrime} = require("../challenges/exercise006");
 
 describe("sumMultiples", () =>{
     test("it throws an error if not passed an array", ()=>{
@@ -76,3 +77,42 @@ describe("isValidDNA", () => {
     
     });
         
+describe("getComplementaryDNA", () => {
+    test("it throws an error if str is not DNA", () =>{
+        expect(() =>{
+            getComplementaryDNA("TGAS");
+            }).toThrow("valid");
+        expect(() =>{
+            getComplementaryDNA();
+            }).toThrow("str is required");
+    });
+
+    
+    test("it returns a string of the complementary base pairs", () =>{
+        const result = getComplementaryDNA("ACTG");
+        const expexted = "TGAC";
+        expect(result).toBe(expexted);
+    });
+});
+
+describe("isItPrime", () =>{
+    test("it throws an error if not passed n", () =>{
+        expect(() =>{
+            isItPrime();
+        }).toThrow("n is required");
+        expect(() => {
+            isItPrime(5.5);
+        }).toThrow("n should be an integer");
+    });
+
+    test("it returns False if a number is not Prime", () =>{
+        const result = isItPrime(100);
+        const expected = false;
+        expect(result).toBe(expected);
+    });
+    test("it returns True if a number is Prime", () =>{
+        const result = isItPrime(11);
+        const expected = true;
+        expect(result).toBe(expected);
+    });
+});
