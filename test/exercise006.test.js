@@ -1,5 +1,5 @@
 const exercise006 = require("../challenges/exercise006");
-const {sumMultiples, isValidDNA, getComplementaryDNA, isItPrime} = require("../challenges/exercise006");
+const {sumMultiples, isValidDNA, getComplementaryDNA, isItPrime, createMatrix} = require("../challenges/exercise006");
 
 describe("sumMultiples", () =>{
     test("it throws an error if not passed an array", ()=>{
@@ -90,8 +90,8 @@ describe("getComplementaryDNA", () => {
     
     test("it returns a string of the complementary base pairs", () =>{
         const result = getComplementaryDNA("ACTG");
-        const expexted = "TGAC";
-        expect(result).toBe(expexted);
+        const expected = "TGAC";
+        expect(result).toBe(expected);
     });
 });
 
@@ -115,4 +115,35 @@ describe("isItPrime", () =>{
         const expected = true;
         expect(result).toBe(expected);
     });
+});
+
+describe("createMatrix", () =>{
+    test("it throws an error if not passed n", () =>{
+        expect(() => {
+            createMatrix(undefined,"all");
+        }).toThrow("n is required");
+    });
+    test("it thriws an error if not passed fill", () =>{
+        expect(() => {
+            createMatrix(3);
+        }).toThrow("fill is required");
+    });
+    test("it throws an error if n is decemal", () => {
+        expect(() => {
+            createMatrix(3.2, "all");
+        }).toThrow("n should be an integer");
+    });
+
+    test("return an array of n arrays, each filled with n items", () =>{
+        const result = createMatrix(3, "smile");
+        const expected = [
+               ["smile", "smile", "smile"],
+               ["smile", "smile", "smile"],
+               ["smile", "smile", "smile"]
+             ];
+        expect(result).toEqual(expected);
+        
+    });
+
+
 });

@@ -49,9 +49,7 @@ const getComplementaryDNA = str => {
   const validDNA = isValidDNA(str);
   if (validDNA === false) throw new Error("valid DNA is required");
   let result = "";
-  //console.log("cba".split(''));
   str.split("").forEach(letter =>{
-    //console.log(letter);
     switch (letter) {
       case "T": 
         result += "A";
@@ -82,12 +80,12 @@ const isItPrime = n => {
   if (n === undefined) throw new Error("n is required");
   if (!Number.isInteger(n)) throw new Error("n should be an integer");
   let result = true;
-  for (i = 1; i <= n; i++){
+  for (let i = 1; i <= n; i++){
     if (n % i === 0 && i != 1 && i != n){
       result = false;
       break;
     }
-  };
+  }
   return result;
 };
 
@@ -106,6 +104,16 @@ const isItPrime = n => {
 const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
+  if (!Number.isInteger(n)) throw new Error("n should be an integer");
+  
+  let resultArray = new Array (n);
+  for (let i = 0; i < n; i++){
+    resultArray[i] = new Array (n);
+    for (let j = 0; j < n; j++){
+      resultArray[i][j] = fill;
+    }
+  }
+  return resultArray;
 };
 
 /**
