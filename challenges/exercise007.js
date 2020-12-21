@@ -9,7 +9,6 @@ const sumDigits = n => {
   let result = 0;
   const digits = n.toString().split("");
   digits.forEach(i => result = result + parseInt(i, 10));
-  
   return result;
 };
 
@@ -24,6 +23,24 @@ const sumDigits = n => {
 const createRange = (start, end, step) => {
   if (start === undefined) throw new Error("start is required");
   if (end === undefined) throw new Error("end is required");
+  if (isNaN(start)) throw new Error("start should be a number");
+  if (isNaN(end)) throw new Error("end should be a number");
+  if (step === undefined) {step = 1;}
+  if (start > end && (step > 0)) throw new Error("end should be greater then start for step > 0");
+  if (start < end && (step <0)) throw new Error("end should be less then start for step < 0");
+  
+  let resultRange = [];
+  if (start < end) {
+    for (let i = start; i <= end;  i = i +step){
+      resultRange.push(i);
+    }
+  }
+  if (start > end) {
+    for (let i = start; i >= end; i = i + step){
+      resultRange.push(i);
+    }
+  }
+  return resultRange;
 };
 
 /**
