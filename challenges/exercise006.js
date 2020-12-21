@@ -105,7 +105,6 @@ const createMatrix = (n, fill) => {
   if (n === undefined) throw new Error("n is required");
   if (fill === undefined) throw new Error("fill is required");
   if (!Number.isInteger(n)) throw new Error("n should be an integer");
-  
   let resultArray = new Array (n);
   for (let i = 0; i < n; i++){
     resultArray[i] = new Array (n);
@@ -131,6 +130,16 @@ const createMatrix = (n, fill) => {
 const areWeCovered = (staff, day) => {
   if (staff === undefined) throw new Error("staff is required");
   if (day === undefined) throw new Error("day is required");
+  if (staff.length == 0) {
+    return false;
+  }
+  let cnt = 0;
+  let result = false;
+  staff.forEach(Employee => {
+    if (Employee.rota.indexOf(day) > -1 ) cnt ++;
+  });
+  if (cnt >= 3) result = true;
+  return result;
 };
 
 module.exports = {
