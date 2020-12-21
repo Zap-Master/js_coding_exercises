@@ -4,6 +4,13 @@
  */
 const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
+  if (n < 0) throw new Error("n should be positive");
+  if (!Number.isInteger(n)) throw new Error("n should be an integer");
+  let result = 0;
+  const digits = n.toString().split("");
+  digits.forEach(i => result = result + parseInt(i, 10));
+  
+  return result;
 };
 
 /**
