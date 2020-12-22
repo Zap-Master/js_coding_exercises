@@ -1,6 +1,6 @@
 const { TestScheduler } = require("jest");
 const exercise007 = require("../challenges/exercise007");
-const {sumDigits, createRange} = require("../challenges/exercise007");
+const {sumDigits, createRange, getScreentimeAlertList} = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
     test("it throws an error if not passed n", () =>{
@@ -86,4 +86,58 @@ describe("createRange", () => {
     });
 
 
+});
+
+describe("getScreentimeAlertList", () =>{
+    const users = [{
+        "username": "beth_1234",
+        "name": "Beth Smith",
+        "screenTime": [
+                     { "date": "2019-05-01", "usage": { "twitter": 34, "instagram": 22, "facebook": 40} },
+                     { "date": "2019-05-02", "usage": { "twitter": 56, "instagram": 40, "facebook": 31} },
+                     { "date": "2019-05-03", "usage": { "twitter": 12, "instagram": 15, "facebook": 19} },
+                     { "date": "2019-05-04", "usage": { "twitter": 10, "instagram": 56, "facebook": 61} },
+                    ]
+       },
+       {
+        "username": "sam_j_1989",
+        "name": "Sam Jones",
+        "screenTime": [
+                     { "date": "2019-06-11", "usage": { "mapMyRun": 0, "whatsApp": 0, "facebook": 0, "safari": 10} },
+                     { "date": "2019-06-13", "usage": { "mapMyRun": 120, "whatsApp": 0, "facebook": 0, "safari": 16} },
+                     { "date": "2019-06-14", "usage": { "mapMyRun": 0, "whatsApp": 0, "facebook": 0, "safari": 31} },
+                    ]
+       },
+       {
+       "username": "doctor_who",
+       "name": "Alex Smith",
+       "screenTime": [
+                    { "date": "2019-05-04", "usage": { "twitter": 34, "instagram": 60, "facebook": 40} },
+                    { "date": "2020-06-02", "usage": { "twitter": 56, "instagram": 40, "facebook": 31} },
+                    { "date": "2020-05-04", "usage": { "twitter": 12, "instagram": 15, "facebook": 19} },
+                    { "date": "2020-10-04", "usage": { "twitter": 10, "instagram": 56, "facebook": 61} },
+                   ]
+      }            
+    ];
+
+    test("it throws an error if not passed users", () => {
+        expect(() => {
+            getScreentimeAlertList(undefined, "2019-05-04");
+        }).toThrow("users is required");
+    });
+    test("it throws an error if not passed date", () => {
+        expect(() => {
+            getScreentimeAlertList(users);
+        }).toThrow("date is required");
+    });
+
+
+    test("it returns an array of usernames of users who have used more than 100 minutes of screentime for a given date", () => {
+        const result = getScreentimeAlertList(users, "2019-05-04");
+        const expected = ["beth_1234", "doctor_who"];
+        expect(result).toEqual(expected);
+        expect(getScreentimeAlertList(users, "2020-06-02")).toEqual(["doctor_who"]);
+        expect(getScreentimeAlertList(users, "2019-06-13")).toEqual(["sam_j_1989"]);            
+        expect(getScreentimeAlertList(users, "2020-09-09")).toEqual([]);            
+    })
 });

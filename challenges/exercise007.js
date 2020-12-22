@@ -6,9 +6,10 @@ const sumDigits = n => {
   if (n === undefined) throw new Error("n is required");
   if (n < 0) throw new Error("n should be positive");
   if (!Number.isInteger(n)) throw new Error("n should be an integer");
-  let result = 0;
-  const digits = n.toString().split("");
-  digits.forEach(i => result = result + parseInt(i, 10));
+  const arrSt = n.toString().split("");
+  const digits = arrSt.map(i => parseInt(i, 10));
+  let result = digits.reduce(function (accumulator, currentValue){
+    return accumulator + currentValue}, 0);
   return result;
 };
 
@@ -75,6 +76,22 @@ const createRange = (start, end, step) => {
 const getScreentimeAlertList = (users, date) => {
   if (users === undefined) throw new Error("users is required");
   if (date === undefined) throw new Error("date is required");
+  let usernames = [];
+  for (let i = 0; i <users.length; i++) {
+    let user = users[i];
+    user.screenTime.forEach(screentime => {
+      if (screentime.date === date) {
+        let minutes = 0;
+        for (const property in screentime.usage){
+          minutes += screentime.usage[property];
+        }
+        if (minutes > 100) {
+          usernames.push(user.username);
+        }
+      }
+    });
+  }
+  return usernames;
 };
 
 /**
