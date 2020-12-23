@@ -1,6 +1,6 @@
 const { TestScheduler } = require("jest");
 const exercise007 = require("../challenges/exercise007");
-const {sumDigits, createRange, getScreentimeAlertList} = require("../challenges/exercise007");
+const {sumDigits, createRange, getScreentimeAlertList, hexToRGB} = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
     test("it throws an error if not passed n", () =>{
@@ -140,4 +140,34 @@ describe("getScreentimeAlertList", () =>{
         expect(getScreentimeAlertList(users, "2019-06-13")).toEqual(["sam_j_1989"]);            
         expect(getScreentimeAlertList(users, "2020-09-09")).toEqual([]);            
     })
+});
+
+describe("hexToRGB", () => {
+    test("it throws an error if not passed hexStr", () => {
+        expect(() => {
+            hexToRGB();
+        }).toThrow("hexStr is required");
+    });
+    test("it throws an error if hexToRGB has wrong format", () => {
+        expect(() => {
+            hexToRGB("#ff090");
+        }).toThrow("incorrect hexStr");
+    });
+    test("it throws an error if hexToRGB has wrong format", () => {
+        expect(() => {
+            hexToRGB("#qq0901");
+        }).toThrow("incorrect hexStr");
+    });
+    test("it throws an error if hexToRGB has wrong format", () => {
+        expect(() => {
+            hexToRGB("#as0901");
+        }).toThrow("incorrect hexStr");
+    });
+
+
+    test("it transforms the hex code into an RGB in decimal notation", () =>{
+        expect(hexToRGB("#FF1133")).toBe("rgb(255,17,51)");
+        expect(hexToRGB("#00ff00")).toBe("rgb(0,255,0)");
+        expect(hexToRGB("#9966ff")).toBe("rgb(153,102,255)");
+    });
 });
