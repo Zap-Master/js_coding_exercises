@@ -1,109 +1,61 @@
 function findSmallNums(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
-  var result = [];
-  var i = 0;
-  nums.forEach(element => {
-    if (nums[i] < 1) {
-      result.push(nums[i]);
-    }
-    i ++;
-  });
-
-  return result;
+  let smallNums = [];
+  smallNums = nums.filter(num => (num < 1));
+  return smallNums;
 }
 
 function findNamesBeginningWith(names, char) {
   if (!names) throw new Error("names is required");
   if (!char) throw new Error("char is required");
-  // Your code here
-  var result = [];
-  var i = 0;
-  names.forEach(element => {
-    if (names[i].substring(0,1).toUpperCase() === char.toUpperCase()){
-      result.push(names[i]);
-    }
-    i ++;
-  })
+  let result = [];
+  result = names.filter(name => (name.substring(0, 1).toUpperCase() === char.toUpperCase()))
   return result;
 }
 
 function findVerbs(words) {
   if (!words) throw new Error("words is required");
-  // Your code here
-  var result = [];
-  var i = 0;
-  words.forEach(element => {
-    if (words[i].indexOf("to ") != -1 ){
-      result.push(words[i]);
-    }
-    i ++;
-  })
+  let result = [];
+  result = words.filter(word => (word.indexOf("to ") != -1));
   return result;
 }
 
 function getIntegers(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
-  var result =[];
-  var i = 0;
-  nums.forEach(element =>{
-    if (Number.isInteger(nums[i])) {
-      result.push(nums[i]);
-    }
-    i ++;
-  })
+  let result = [];
+  result = nums.filter(num => (Number.isInteger(num)));
   return result;
 }
 
 function getCities(users) {
   if (!users) throw new Error("users is required");
-  // Your code here
-  var result = [];
-  var i = 0;
-  users.forEach(element =>{
-    result.push(users[i].data.city.displayName);
-    i++;
-  })
+  let result = [];
+  result = users.map(user => user.data.city.displayName);
   return result;
 }
 
 function getSquareRoots(nums) {
   if (!nums) throw new Error("nums is required");
-  // Your code here
-  var i = 0;
-  nums.forEach(element => {
-    nums[i] = Number(Math.round(Math.sqrt(nums[i]) + "e2") + "e-2");
-    i ++;
-  })
-  return nums;
+  let squareRoots = [];
+  squareRoots = nums.map(num => Number(Math.round(Math.sqrt(num) + "e2") + "e-2"));
+  return squareRoots;
 }
 
 function findSentencesContaining(sentences, str) {
   if (!sentences) throw new Error("sentences is required");
   if (!str) throw new Error("str is required");
-  // Your code here
-  var result =[];
-  var i = 0;
-  sentences.forEach(element => {
-    if (sentences[i].toUpperCase().search(str.toUpperCase()) != -1 ){
-      result.push(sentences[i]);
-    }
-    i++;
-  });
+  let result = [];
+  result = sentences.filter(s => (s.toUpperCase().search(str.toUpperCase()) != -1));
   return result;
 }
 
 function getLongestSides(triangles) {
   if (!triangles) throw new Error("triangles is required");
-  // Your code here
-  var result =[];
-  var i =0;
+  let longestSides = [];
   triangles.forEach(element => {
-    result.push(Math.max.apply(null,triangles[i]));
-    i++;
+    longestSides.push(Math.max.apply(null, element));
   });
-  return result;
+  return longestSides;
 }
 
 module.exports = {
