@@ -1,6 +1,6 @@
 const { TestScheduler } = require("jest");
 const exercise007 = require("../challenges/exercise007");
-const {sumDigits, createRange, getScreentimeAlertList, hexToRGB} = require("../challenges/exercise007");
+const {sumDigits, createRange, getScreentimeAlertList, hexToRGB, findWinner} = require("../challenges/exercise007");
 
 describe("sumDigits", () => {
     test("it throws an error if not passed n", () =>{
@@ -170,4 +170,46 @@ describe("hexToRGB", () => {
         expect(hexToRGB("#00ff00")).toBe("rgb(0,255,0)");
         expect(hexToRGB("#9966ff")).toBe("rgb(153,102,255)");
     });
+});
+
+describe("findWinner", () => {
+    const board = [
+        ["X", "0", null],
+        ["X", null, "0"],
+        ["X", null, "0"]
+        ];
+    const board1 = [
+        ["0", "0", "0"],
+        ["X", null, "0"],
+        ["X", null, "0"]
+        ];
+    const board2 = [
+        ["X", "0", null],
+        ["0", null, "0"],
+        ["X", "X", "X"]
+        ];
+    const board3 = [
+        ["X", "0", null],
+        ["X", null, "0"],
+        ["0", null, "X"]
+        ];
+                        
+    test("it returns X ", () =>{
+        expect(findWinner(board)).toBe("X");
+
+    });
+    test("it returns 0 ", () =>{
+        expect(findWinner(board1)).toBe("0");
+
+    });
+    test("it returns X ", () =>{
+        expect(findWinner(board2)).toBe("X");
+
+    });
+
+    test("it returns null ", () =>{
+        expect(findWinner(board3)).toBe();
+
+    });
+
 });
