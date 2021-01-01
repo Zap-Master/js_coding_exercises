@@ -1,19 +1,15 @@
 const findNextNumber = (nums, n) => {
   if (nums === undefined) throw new Error("nums is required");
   if (n === undefined) throw new Error("n is required");
-  let result = null;
   let indexOfN = nums.indexOf(n);
   switch (indexOfN) {
     case nums.length - 1: //last element
-      result = null;
-      break;
+      return null;
     case -1: //element not found
-      result = null;
-      break;
+      return null;
     default:
-      result = nums[indexOfN + 1];
+      return nums[indexOfN + 1];
   }
-  return result;
 };
 
 const count1sand0s = str => {
@@ -36,9 +32,7 @@ const count1sand0s = str => {
 const reverseNumber = n => {
   if (n === undefined) throw new Error("n is required");
   let result = "";
-  let arr = n.toString().split("");
-  arr.reverse();
-  arr.forEach(element => result = result + element);
+  n.toString().split("").reverse().forEach(element => result += element);
   return parseInt(result, 10);
 };
 
@@ -49,7 +43,6 @@ const sumArrays = arrs => {
   }
   const sums = arrs.map(element => element.reduce(getSum));
   return sums.reduce(getSum);
-
 };
 
 const arrShift = arr => {
@@ -64,9 +57,8 @@ const findNeedle = (haystack, searchTerm) => {
   if (haystack === undefined) throw new Error("haystack is required");
   if (searchTerm === undefined) throw new Error("searchTerm is required");
   let result = false;
-  let inspectedStr = "";
   for (let key in haystack) {
-    inspectedStr = haystack[key].toString().toLowerCase();
+    let inspectedStr = haystack[key].toString().toLowerCase();
     if (inspectedStr.includes(searchTerm.toLowerCase())) {
       result = true;
     }
@@ -76,7 +68,7 @@ const findNeedle = (haystack, searchTerm) => {
 
 const getWordFrequencies = str => {
   if (str === undefined) throw new Error("str is required");
-  let inspectedStr = str.toLowerCase().replace(/[&\/\\#,+()$~%.'":*?<>{}!]/g, '');
+  let inspectedStr = str.toLowerCase().replace(/[&/\\#,+()$~%.'":*?<>{}!]/g, '');
   let arrOfWords = inspectedStr.split(" ");
   let wrdFreqObj = {};
   for (let i = 0; i < arrOfWords.length; i++) {

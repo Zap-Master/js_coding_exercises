@@ -13,16 +13,14 @@ function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
   let result = (originalPrice + (originalPrice * vatRate / 100))
-  result = Math.floor(result*100)/100;
-  return (result);
+  return Math.floor(result*100)/100;
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
   let result = (originalPrice - (originalPrice * reduction / 100))
-  result = Math.floor(result*100)/100;
-  return (result);
+  return Math.floor(result*100)/100;
 }
 
 function getMiddleCharacter(str) {
@@ -41,7 +39,7 @@ function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
   let result = "";
   for (let i = word.length; i >= 0; i--){
-    result = result + word.charAt(i);
+    result += word.charAt(i);
   }
   return result;
 }
@@ -59,7 +57,7 @@ function countLinuxUsers(users) {
   let result = 0;
   for (let i = 0; i < users.length; i++){
     if (users[i].type === "Linux"){
-      result = result + 1;
+      result ++;
     }
   }
   return result;
@@ -67,9 +65,9 @@ function countLinuxUsers(users) {
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  let result = scores.reduce((a,b) => a + b, 0) / scores.length;
-  result = Number(Math.round(result + "e2") + "e-2");
-  return result;
+  let result = (scores.reduce((a,b) => a + b, 0)) / scores.length;
+  return Number(Math.round(result + "e2") + "e-2"); // return (result.toFixed(2))
+
 }
 
 function simpleFizzBuzz(n) {

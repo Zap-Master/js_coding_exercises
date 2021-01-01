@@ -14,7 +14,7 @@ function camelCaseWords(words) {
       result = words[i];
     }
     else {
-      result = result + words[i].substring(0, 1).toUpperCase() + words[i].substring(1, words[i].length);
+      result +=  words[i].substring(0, 1).toUpperCase() + words[i].substring(1, words[i].length);
     }
   }
   return result;
@@ -24,7 +24,7 @@ function getTotalSubjects(people) {
   if (people === undefined) throw new Error("people is required");
   let result = 0;
   people.forEach(element => {
-    result = result + element.subjects.length;
+    result += element.subjects.length;
   });
   return result;
 
@@ -35,7 +35,6 @@ function checkIngredients(menu, ingredient) {
   if (!ingredient) throw new Error("ingredient is required");
   let result = false;
   menu.forEach(meal =>{
-    //console.log(meal.ingredients  + "     " + ingredient + "    " + meal.ingredients.includes(ingredient));
     if (meal.ingredients.includes(ingredient)) {
       result = true;
       return;

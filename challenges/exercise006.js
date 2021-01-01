@@ -1,4 +1,4 @@
-const { run } = require("jest");
+
 
 /**
  * This function will receive an array of numbers and should return the sum
@@ -63,10 +63,8 @@ const getComplementaryDNA = str => {
       case "G":
         result += "C";
         break;
-
     }
   });
-
   return result;
 };
 
