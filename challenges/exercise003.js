@@ -1,61 +1,59 @@
 function getSquares(nums) {
   if (nums === undefined) throw new Error("nums is required");
-  const squaredNums = nums.map(function (num) {
-    return num * num;
-  });
-  return squaredNums;
+  return nums.map(num => num * num);
 }
 
 function camelCaseWords(words) {
   if (words === undefined) throw new Error("words is required");
-  let result = "";
+  let camelCase = "";
   for (let i = 0; i < words.length; i++) {
     if (i === 0) {
-      result = words[i];
+      camelCase = words[i];
     }
     else {
-      result +=  words[i].substring(0, 1).toUpperCase() + words[i].substring(1, words[i].length);
+      camelCase +=  words[i].substring(0, 1).toUpperCase() + words[i].substring(1, words[i].length);
     }
   }
-  return result;
+  return camelCase;
 }
 
-function getTotalSubjects(people) {
+function getTotalSubjects(people)
+ {
   if (people === undefined) throw new Error("people is required");
-  let result = 0;
+  let TotalSubjects = 0;
   people.forEach(element => {
-    result += element.subjects.length;
+    TotalSubjects += element.subjects.length;
   });
-  return result;
+  return TotalSubjects;
 
 }
 
 function checkIngredients(menu, ingredient) {
   if (menu === undefined) throw new Error("menu is required");
   if (!ingredient) throw new Error("ingredient is required");
-  let result = false;
+  let isIncluded = false;
   menu.forEach(meal =>{
     if (meal.ingredients.includes(ingredient)) {
-      result = true;
+      isIncluded = true;
       return;
     }
   });
   
-  return (result);
+  return (isIncluded);
   
 }
 
 function duplicateNumbers(arr1, arr2) {
   if (arr1 === undefined) throw new Error("arr1 is required");
   if (arr2 === undefined) throw new Error("arr2 is required");
-  let result = [];
+  let duplicateNums = [];
   arr1.forEach(element =>{
-    if (arr2.includes(element) && !result.includes(element)) {
-      result.push(element);
+    if (arr2.includes(element) && !duplicateNums.includes(element)) {
+      duplicateNums.push(element);
     }
 
   });
-  return result.sort();
+  return duplicateNums.sort();
 }
 
 module.exports = {

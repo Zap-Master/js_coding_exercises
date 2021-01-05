@@ -15,13 +15,13 @@ function getBusNumbers(people) {
 
 function countSheep(arr) {
   if (arr === undefined) throw new Error("arr is required");
-  let result = 0;
+  let sheeps = 0;
   for (let i = 0; i < arr.length; i ++){
     if (arr[i] === "sheep") {
-      result ++;
+      sheeps ++;
     }
   }
-  return result;
+  return sheeps;
 }
 
 function hasMPostCode(person) {

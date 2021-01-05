@@ -12,36 +12,36 @@ function generateInitials(firstName, lastName) {
 function addVAT(originalPrice, vatRate) {
   if (originalPrice === undefined) throw new Error("originalPrice is requied");
   if (vatRate === undefined) throw new Error("vatRate is required");
-  let result = (originalPrice + (originalPrice * vatRate / 100))
-  return Math.floor(result*100)/100;
+  const vatPrice = (originalPrice + (originalPrice * vatRate / 100))
+  return Math.floor(vatPrice*100)/100;
 }
 
 function getSalePrice(originalPrice, reduction) {
   if (originalPrice === undefined) throw new Error("originalPrice is required");
   if (reduction === undefined) throw new Error("reduction is required");
-  let result = (originalPrice - (originalPrice * reduction / 100))
-  return Math.floor(result*100)/100;
+  const salePrice = (originalPrice - (originalPrice * reduction / 100))
+  return Math.floor(salePrice*100)/100;
 }
 
 function getMiddleCharacter(str) {
   if (str === undefined) throw new Error("str is required");
-  let result = "";
+  let middleCharacter = "";
   if (str.length%2 != 0){
-    result = str.substring((Math.round(str.length/2)) - 1,Math.round(str.length/2));
+    middleCharacter = str.substring((Math.round(str.length/2)) - 1,Math.round(str.length/2));
   }
   else {
-    result = str.substring((str.length/2)-1, (str.length/2) + 1);
+    middleCharacter = str.substring((str.length/2)-1, (str.length/2) + 1);
   }
-  return result;
+  return middleCharacter;
 }
 
 function reverseWord(word) {
   if (word === undefined) throw new Error("word is required");
-  let result = "";
+  let reversedWord = "";
   for (let i = word.length; i >= 0; i--){
-    result += word.charAt(i);
+    reversedWord += word.charAt(i);
   }
-  return result;
+  return reversedWord;
 }
 
 function reverseAllWords(words) {
@@ -54,19 +54,19 @@ function reverseAllWords(words) {
 
 function countLinuxUsers(users) {
   if (users === undefined) throw new Error("users is required");
-  let result = 0;
+  let linuxUsers = 0;
   for (let i = 0; i < users.length; i++){
     if (users[i].type === "Linux"){
-      result ++;
+      linuxUsers ++;
     }
   }
-  return result;
+  return linuxUsers;
 }
 
 function getMeanScore(scores) {
   if (scores === undefined) throw new Error("scores is required");
-  let result = (scores.reduce((a,b) => a + b, 0)) / scores.length;
-  return Number(Math.round(result + "e2") + "e-2"); // return (result.toFixed(2))
+  let meanScore = (scores.reduce((a,b) => a + b)) / scores.length;
+  return Number(Math.round(meanScore + "e2") + "e-2");
 
 }
 
